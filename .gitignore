@@ -1,0 +1,23 @@
+.DS_Store
+.idea/
+.build/
+node_modules/
+npm-debug.log
+*.iml
+recordings/
+
+##Ignore vagrant directory
+.vagrant
+vagrant_*
+
+# ansible
+*.retry
+
+
+## Ignore swap files
+**/*.swp
+**/*.swo
+
+## Ignore log files
+logs/
+npm-debug.log*
