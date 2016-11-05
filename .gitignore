@@ -21,3 +21,4 @@ vagrant_*
 ## Ignore log files
 logs/
 npm-debug.log*
+public

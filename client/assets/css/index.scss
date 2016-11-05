@@ -1,0 +1,81 @@
+
+.navbar {
+  background: white;
+}
+
+
+.font-size-14 {
+  font-size: 14px;
+}
+
+.font-size-12 {
+  font-size: 12px;
+}
+
+.navbar-brand {
+  background: url('../images/order.png') center no-repeat;
+  height: 55px;
+  width: 115px;
+  background-size: 96px 48px;
+  margin-right: 15px;
+  margin-left: 0px !important;
+}
+
+.navbar-default .navbar-nav > .active > a {
+  background-color: white !important;
+}
+
+.spinner-container {
+  text-align: center;
+}
+
+.spinner-header {
+  text-align: center;
+}
+
+.spinner-header h3 {
+  font-weight: bold;
+}
+
+.spinner {
+  background: url('../images/loading.gif') center no-repeat;
+  height: 200px;
+  width: 200px;
+  background-repeat: no-repeat;
+  margin: 0 auto;
+}
+
+
+.margin-top-10 {
+  margin-top: 10px;
+}
+
+
+.filter span {
+  float: right;
+  margin-top: -33px;
+  margin-right: 10px;
+}
+
+.pad-left-0 {
+  padding-left: 0px;
+}
+
+.pad-right-0 {
+  padding-right: 0px;
+}
+
+.error-div {
+  height: 30px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+button.btn:not(.datepick) i.fa {
+  padding-right: 6px;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+}
