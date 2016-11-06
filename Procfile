@@ -1,0 +1,1 @@
+web: ./go config && npm start
