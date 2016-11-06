@@ -12,13 +12,17 @@ router.get('/order/:orderNumber', (req, res) => {
 
 router.post('/order', (req, res) => {
     const order = req.body;
-    if (valid(order)) {
+    const isValid = valid(order);
+    if (isValid) {
         elasticSearchService.add('order', order)
             .then((id)=> {
-                res.status(201).send('Order Saved!');
-            },(err)=>{
-                res.status(500).send({message: 'Error while saving Order!'})
+                console.log('order saved!!', order);
+                return res.status(201).send('Order Saved!');
+            }, (err)=> {
+                return res.status(500).send({message: 'Error while saving Order!'})
             });
+    } else {
+        return res.status(400).send({message: 'Invalid Order!'})
     }
 });
 

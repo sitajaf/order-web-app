@@ -25,8 +25,13 @@ class ElasticSearchService {
             type: type,
             body: data
         }).then((response) => {
-            return response._id;
-        });
+            console.log('==========saved: ', response);
+                return response._id;
+            },
+            (error)=> {
+                console.log('error: ', error);
+                return error;
+            });
     }
 }
 

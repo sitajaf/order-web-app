@@ -7,11 +7,10 @@ const app = express();
 
 const port = process.env.PORT || 3000;
 
-routes(app);
-
 app.use(bodyParser.json());
 app.use('/', express.static(path.join(__dirname, '../public')));
 
+routes(app);
 
 app.listen(port, (err) => {
     if (err) {
