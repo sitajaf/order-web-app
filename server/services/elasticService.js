@@ -1,4 +1,5 @@
 const elasticSearch = require('elasticsearch');
+const uuid = require('uuid');
 
 class ElasticSearchService {
     constructor() {
@@ -8,7 +9,7 @@ class ElasticSearchService {
             config = require('../../server_config.json');
             console.log('file loaded')
         } catch (err) {
-            console.log('Failed to load config fail! \n:', err);
+            console.log('Failed to load server config! \n:', err);
             process.exit(1);
         }
 
@@ -23,15 +24,9 @@ class ElasticSearchService {
         return this.client.create({
             index: this.serverIndex,
             type: type,
-            body: data
-        }).then((response) => {
-            console.log('==========saved: ', response);
-                return response._id;
-            },
-            (error)=> {
-                console.log('error: ', error);
-                return error;
-            });
+            body: data,
+            id: uuid.v4()
+        });
     }
 }
 

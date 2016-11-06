@@ -15,10 +15,10 @@ router.post('/order', (req, res) => {
     const isValid = valid(order);
     if (isValid) {
         elasticSearchService.add('order', order)
-            .then((id)=> {
-                console.log('order saved!!', order);
+            .then((response)=> {
                 return res.status(201).send('Order Saved!');
-            }, (err)=> {
+            }, (error)=> {
+                console.log('Error while saving order: ', error);
                 return res.status(500).send({message: 'Error while saving Order!'})
             });
     } else {
