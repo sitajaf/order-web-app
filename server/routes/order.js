@@ -3,17 +3,26 @@ const ElasticSearchService = require('../services/elasticService');
 
 const elasticSearchService = new ElasticSearchService();
 
-router.get('/api/order/:orderNumber', (req, res) => {
-    res.status(200).send({
-        orderNumber: req.params.orderNumber || 'DEF0123',
-        name: 'Kawunga'
-    });
+router.get('/api/order/:id', (req, res) => {
+    if (req.params.id) {
+        elasticSearchService.get('order', req.params.id)
+            .then((order)=> {
+                res.status(200).send(response);
+            }, (error)=> {
+                res.status(500).send(error);
+            })
+    }else{
+        res.status(400).send({message: 'Invalid id!'});
+    }
+
+
 });
 
 router.post('/api/order', (req, res) => {
     const order = req.body;
     const isValid = valid(order);
     if (isValid) {
+        order.inProgress = true;
         elasticSearchService.add('order', order)
             .then((response)=> {
                 return res.status(201).send({id: response._id});

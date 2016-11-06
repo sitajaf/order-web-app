@@ -30,6 +30,14 @@ class ElasticSearchService {
             id: uuid.v4()
         });
     }
+
+    get(type, id){
+        return this.client.get({
+            index: this.serverIndex,
+            type: type,
+            id: id
+        });
+    }
 }
 
 module.exports = ElasticSearchService;
