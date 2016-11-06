@@ -1,6 +1,5 @@
 {
   "server": {
-    "host": "server_host",
-    "port": "server_port"
+    "host": "server_host"
   }
 }
