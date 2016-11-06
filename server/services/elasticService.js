@@ -5,7 +5,8 @@ class ElasticSearchService {
         let config = null;
 
         try {
-            config: require('../../server_config.json');
+            config = require('../../server_config.json');
+            console.log('file loaded')
         } catch (err) {
             console.log('Failed to load config fail! \n:', err);
             process.exit(1);

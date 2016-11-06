@@ -24,8 +24,8 @@ app.config(($stateProvider, $urlRouterProvider) => {
         templateUrl: mainPageTemplate,
         controller: 'MainController'
     })
-        .state('order:orderNumber', {
-            url: '/order',
+        .state('order', {
+            url: '/order:orderNumber',
             templateUrl: orderPageTemplate,
             controller: 'orderController'
         })
