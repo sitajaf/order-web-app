@@ -1,1 +1,1 @@
-web: ./go config && npm start
+web: ./go config && webpack && node run serve
