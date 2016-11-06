@@ -11,13 +11,15 @@ class ElasticSearchService {
             console.log('file loaded')
         } catch (err) {
             console.log('Failed to load server config! \n' +
-                'Ensure environment variables are set at least:', err);
+                'Ensure environment variables are set at least!');
         }
 
         this.client = new elasticSearch.Client({
             host: process.env.ELASTIC_SEARCH_HOST || config.elasticSearch.host,
             log: process.env.ELASTIC_SEARCH_LOG_LEVEL || config.elasticSearch.logLevel
         });
+
+        console.log('client: ', this.client)
         this.serverIndex = 'order-app';
     }
 
