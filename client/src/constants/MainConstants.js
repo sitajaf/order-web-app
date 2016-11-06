@@ -8,6 +8,8 @@ module.exports = (app) => {
         console.log('No Config file located!!');
     }
 
+    console.log('config: ', config);
+
     app.constant('appConfig', {
         URL: config === null ? `http://localhost:3000` : `${config.server.url}`
     });
