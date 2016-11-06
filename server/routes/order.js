@@ -3,11 +3,11 @@ const ElasticSearchService = require('../services/elasticService');
 
 const elasticSearchService = new ElasticSearchService();
 
-router.get('/order', (req, res) => {
+router.get('/order:orderNumber', (req, res) => {
     res.send({
-        id: 2344,
+        orderNumber: req.params.orderNumber || 'DEF0123',
         name: 'Kawunga'
-    })
+    });
 });
 
 router.post('/order', (req, res) => {

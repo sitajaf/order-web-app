@@ -1,4 +1,5 @@
 const mainPageTemplate = require('./src/templates/main.html');
+const orderPageTemplate = require('./src/templates/order.html');
 
 const controllers = require('./src/controllers');
 const services = require('./src/services');
@@ -23,6 +24,11 @@ app.config(($stateProvider, $urlRouterProvider) => {
         templateUrl: mainPageTemplate,
         controller: 'MainController'
     })
+        .state('order:orderNumber', {
+            url: '/order',
+            templateUrl: orderPageTemplate,
+            controller: 'orderController'
+        })
 });
 
 app.run(['$rootScope', '$state',

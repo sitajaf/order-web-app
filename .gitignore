@@ -22,7 +22,7 @@ vagrant_*
 logs/
 npm-debug.log*
 public
-client/config.json
+client/client_config.json
 client/config.json-e
 server_config.json
 server_config.json-e
