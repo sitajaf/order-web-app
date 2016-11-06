@@ -11,6 +11,6 @@ module.exports = (app) => {
     console.log('config: ', config);
 
     app.constant('appConfig', {
-        URL: config === null ? `http://localhost:3000` : `${config.server.url}`
+        URL: config === null ? `http://localhost:3000` : `http://localhost:${config.server.port}`
     });
 };
