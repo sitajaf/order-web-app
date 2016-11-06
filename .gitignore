@@ -24,3 +24,5 @@ npm-debug.log*
 public
 client/config.json
 client/config.json-e
+server_config.json
+server_config.json-e
