@@ -3,7 +3,7 @@
 module.exports = (app) => {
     app.controller('MainController', ['$scope', '$http', 'appConfig', ($scope, $http, appConfig) => {
         $scope.data = {value: 'Hello!'};
-        $http.get(`${appConfig.URL}/order/334839`)
+        $http.get(`${appConfig.URL}/api/order/334839`)
             .then((order) => {
                 console.log('orders: ', order)
             }, (error)=> {

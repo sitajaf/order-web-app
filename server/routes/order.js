@@ -3,14 +3,14 @@ const ElasticSearchService = require('../services/elasticService');
 
 const elasticSearchService = new ElasticSearchService();
 
-router.get('/order/:orderNumber', (req, res) => {
+router.get('/api/order/:orderNumber', (req, res) => {
     res.status(200).send({
         orderNumber: req.params.orderNumber || 'DEF0123',
         name: 'Kawunga'
     });
 });
 
-router.post('/order', (req, res) => {
+router.post('/api/order', (req, res) => {
     const order = req.body;
     const isValid = valid(order);
     if (isValid) {
