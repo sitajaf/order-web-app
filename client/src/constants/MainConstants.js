@@ -1,7 +1,14 @@
 'use strict';
 
 module.exports = (app) => {
-    app.constant('MAIN_CONSTANTS', {
-        appName: 'Order App Web'
+    let config = null;
+    try {
+        config = require('../../config.json');
+    } catch (err) {
+        console.log('No Config file located!!');
+    }
+
+    app.constant('appConfig', {
+        URL: config === null ? `http://localhost:3000` : `http://${config.server.url}:${config.server.port}`
     });
 };
