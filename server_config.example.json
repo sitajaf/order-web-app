@@ -1,7 +1,7 @@
 {
   "elasticSearch": {
     "host": "elastic_search_host",
-    "logLevel": "info",
+    "logLevel": "elastic_search_log_level",
     "index": "order-app"
   }
 }
