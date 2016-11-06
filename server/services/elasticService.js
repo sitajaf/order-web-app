@@ -19,7 +19,6 @@ class ElasticSearchService {
             log: process.env.ELASTIC_SEARCH_LOG_LEVEL || config.elasticSearch.logLevel
         });
 
-        console.log('client: ', this.client)
         this.serverIndex = 'order-app';
     }
 
