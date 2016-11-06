@@ -10,8 +10,8 @@ class ElasticSearchService {
             console.log('==== config: ', config);
             console.log('file loaded')
         } catch (err) {
-            console.log('Failed to load server config! \n:', err);
-            process.exit(1);
+            console.log('Failed to load server config! \n' +
+                'Ensure environment variables are set at least:', err);
         }
 
         this.client = new elasticSearch.Client({
