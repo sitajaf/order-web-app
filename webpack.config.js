@@ -24,10 +24,6 @@ module.exports = {
             './src/core/app_bootstrap.js'
         ]
     },
-    devServer: {
-        address: '0.0.0.0',
-        port: 8080
-    },
     externals: {
         angular: 'angular',
         jquery: 'jQuery'

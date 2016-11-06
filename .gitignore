@@ -22,3 +22,5 @@ vagrant_*
 logs/
 npm-debug.log*
 public
+client/config.json
+client/config.json-e
