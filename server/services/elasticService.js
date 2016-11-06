@@ -23,8 +23,7 @@ class ElasticSearchService {
         return this.client.create({
             index: this.serverIndex,
             type: type,
-            body: data,
-            refresh: true
+            body: data
         }).then((response) => {
             return response._id;
         });
