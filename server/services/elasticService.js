@@ -7,6 +7,7 @@ class ElasticSearchService {
 
         try {
             config = require('../../server_config.json');
+            console.log('==== config: ', config);
             console.log('file loaded')
         } catch (err) {
             console.log('Failed to load server config! \n:', err);
