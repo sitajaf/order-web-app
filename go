@@ -4,8 +4,8 @@ function config () {
 
     echo '=== Generating client config file ==='
     cd ./client
-    cp client_config.example.json config.json
-    sed -i -e "s/server_host/$SERVER_HOST/g" config.json
+    cp client_config.example.json client_config.json
+    sed -i -e "s/server_host/$SERVER_HOST/g" client_config.json
 
     echo '=== Generating server config file ==='
     cd ..
