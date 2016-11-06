@@ -16,7 +16,7 @@ router.post('/api/order', (req, res) => {
     if (isValid) {
         elasticSearchService.add('order', order)
             .then((response)=> {
-                return res.status(201).send('Order Saved!');
+                return res.status(201).send({id: response._id});
             }, (error)=> {
                 console.log('Error while saving order: ', error);
                 return res.status(500).send({message: 'Error while saving Order!'})
