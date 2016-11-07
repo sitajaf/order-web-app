@@ -56,6 +56,9 @@ module.exports = {
             test: /\.css$/,
             loader: ExtractTextPlugin.extract('style', 'css')
         }, {
+            test: /\.mp3$/,
+            loader: 'file'
+        }, {
             test: /src[/\\\\]templates[/\\\\].*\.html$/,
             loader: 'ngtemplate?requireAngular!html'
         }, {

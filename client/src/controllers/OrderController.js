@@ -1,5 +1,8 @@
 'use strict';
 
+const soundManager = require('soundmanager2');
+const path = require('../../assets/audio/triangle-bell.mp3');
+
 module.exports = (app) => {
     app.controller('OrderController', ['$scope', '$http', '$state', '$rootScope', '$interval', 'appConfig', 'spinnerService',
         ($scope, $http, $state, $rootScope, $interval, appConfig, spinnerService) => {
@@ -51,6 +54,20 @@ module.exports = (app) => {
             $scope.chefImage = ()=> {
                 return $scope.order.inProgress ? ['chef-cooking'] : ['chef-done-cooking'];
             }
+
+            $scope.$watch('order.inProgress', (value)=>{
+                if(value === false){
+                    soundManager.soundManager.setup({
+                        url: path,
+                        onready:()=>{
+                            var mySound = soundManager.soundManager.createSound({
+                                url: path
+                            });
+                            mySound.play();
+                        }
+                    });
+                }
+            })
 
         }]);
 };
