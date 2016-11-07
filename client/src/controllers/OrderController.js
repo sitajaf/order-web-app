@@ -1,16 +1,25 @@
 'use strict';
 
 module.exports = (app) => {
-    app.controller('OrderController', ['$scope', '$http', '$state', '$rootScope', 'appConfig',
-        ($scope, $http, $state, $rootScope, appConfig) => {
-            $scope.orderId = $state.params.orderId;
-            if ($scope.orderId) {
-                console.log('url: ', appConfig.URL);
+    app.controller('OrderController', ['$scope', '$http', '$state', '$rootScope', '$interval', 'appConfig', 'spinnerService',
+        ($scope, $http, $state, $rootScope, $interval, appConfig, spinnerService) => {
+            const delay = 10000;
+            let intervalPromise;
+
+            const fetchOrder = (done) => {
+                $rootScope.error = {
+                    value: false,
+                    message: ''
+                };
                 $http.get(`${appConfig.URL}/api/order/${$scope.orderId}`)
                     .then((response) => {
                         console.log('received order: ', response);
                         $scope.order = response.data._source;
-                        // $scope.$apply();
+
+                        if ($scope.inProgress === false) {
+                            $interval.cancel(intervalPromise);
+                        }
+
                     }, (error)=> {
                         console.log('errors: ', error);
                         $rootScope.error = {
@@ -18,7 +27,26 @@ module.exports = (app) => {
                             message: 'Error while fetching order!'
                         };
 
+                    })
+                    .finally(()=> {
+                        if (done) {
+                            done();
+                        }
                     });
+            };
+
+            const checkForUpdates = ()=> {
+                intervalPromise = $interval(fetchOrder, delay);
+            };
+
+            $scope.orderId = $state.params.orderId;
+
+            if ($scope.orderId) {
+                spinnerService.start();
+                console.log('url: ', appConfig.URL);
+                fetchOrder(spinnerService.stop);
+
+                checkForUpdates();
             }
 
         }]);
