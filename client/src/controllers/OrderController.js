@@ -43,10 +43,13 @@ module.exports = (app) => {
 
             if ($scope.orderId) {
                 spinnerService.start();
-                console.log('url: ', appConfig.URL);
                 fetchOrder(spinnerService.stop);
 
                 checkForUpdates();
+            }
+
+            $scope.chefImage = ()=> {
+                return $scope.order.inProgress ? ['chef-cooking'] : ['chef-done-cooking'];
             }
 
         }]);

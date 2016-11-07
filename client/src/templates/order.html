@@ -1,12 +1,8 @@
-<div class="starter-template">
-    <div>Order ID: {{ orderId}}</div>
+<div class="div-order-id">Order ID: {{ orderId}}</div>
 
-    <div ng-if="order">
-        <h3>Order Number: {{ order.orderNumber}}</h3>
-        <h4>Items:</h4>
-        <div ng-repeat="item in order.items">{{ item }}</div>
-        <h1 ng-if="order.inProgress === false">Your order is ready for pick up ...</h1>
-        <h1 ng-if="order.inProgress === true"> Your order is still in progress ...</h1>
-    </div>
-
+<div ng-if="order">
+    <h3 class="text-center">Order Number: {{ order.orderNumber}}</h3>
+    <div ng-class="chefImage()"></div>
+    <h1 class="text-center" ng-if="order.inProgress === false">Your order is ready for pick up ...</h1>
+    <h1 class="text-center" ng-if="order.inProgress === true"> Your order is still in progress ...</h1>
 </div>
