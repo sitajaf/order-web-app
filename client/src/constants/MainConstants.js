@@ -5,7 +5,7 @@ module.exports = (app) => {
     try {
         config = require('../../client_config.json');
     } catch (err) {
-        console.log('No Config file located!!');
+        console.log('No Config file located!! Using default settings ...');
     }
 
     console.log('config: ', config);

@@ -1,6 +1,15 @@
 <div class="starter-template">
-    <h4>Order Number: {{ order.orderNumber}}!</h4>
+    <h4>Order Number: {{ orderId}}</h4>
 
-    <h4> Rest of order: {{ order }</h4>
+    <div ng-if="order">
+        <h1 ng-if="order.inProgress === false">Your order is ready for pick up ...</h1>
+
+        <div ng-if="order.inProgress === true">
+            <h1> Your order is still in progress ...</h1>
+            <h4>Order Number: {{ order.orderNumber}}</h4>
+            <h4>Items:</h4>
+            <div ng-repeat="item in order.items">{{ item }}</div>
+        </div>
+    </div>
 
 </div>

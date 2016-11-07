@@ -7,7 +7,7 @@ router.get('/api/order/:id', (req, res) => {
     if (req.params.id) {
         elasticSearchService.get('order', req.params.id)
             .then((order)=> {
-                res.status(200).send(response);
+                res.status(200).send(order);
             }, (error)=> {
                 res.status(500).send(error);
             })
