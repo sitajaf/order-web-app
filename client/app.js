@@ -20,10 +20,10 @@ app.config(($stateProvider, $urlRouterProvider) => {
     $urlRouterProvider.otherwise('/');
 
     $stateProvider.state('main', {
-        url: '/main',
-        templateUrl: mainPageTemplate,
-        controller: 'MainController'
-    })
+            url: '/main',
+            templateUrl: mainPageTemplate,
+            controller: 'MainController'
+        })
         .state('order', {
             url: '/order/:orderId',
             templateUrl: orderPageTemplate,
