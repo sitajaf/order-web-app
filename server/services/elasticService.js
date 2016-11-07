@@ -31,13 +31,25 @@ class ElasticSearchService {
         });
     }
 
-    get(type, id){
+    get(type, id) {
         return this.client.get({
             index: this.serverIndex,
             type: type,
             id: id
         });
     }
+
+    update(type, id, data) {
+        return this.client.update({
+            index: this.serverIndex,
+            type: type,
+            id: id,
+            body: {
+                doc: data
+            }
+        });
+    }
+
 }
 
 module.exports = ElasticSearchService;

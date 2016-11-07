@@ -11,11 +11,9 @@ router.get('/api/order/:id', (req, res) => {
             }, (error)=> {
                 res.status(500).send(error);
             })
-    }else{
+    } else {
         res.status(400).send({message: 'Invalid id!'});
     }
-
-
 });
 
 router.post('/api/order', (req, res) => {
@@ -35,8 +33,22 @@ router.post('/api/order', (req, res) => {
     }
 });
 
-const valid = (order) => {
-    return order !== undefined && order !== {};
+router.put('/api/order/:id', (req, res) => {
+    if (req.params.id && valid(req.body)) {
+        elasticSearchService.update('order', req.params.id, req.body)
+            .then((response)=> {
+                res.status(201).send({id: response._id});
+            }, (error)=> {
+                console.log('Error while updating order: ', error);
+                res.status(500).send({message: 'Error while updating ready status of Order!'})
+            });
+    } else {
+        res.status(400).send({message: 'invalid params!'})
+    }
+});
+
+const valid = (object) => {
+    return object !== undefined && object !== {};
 };
 
 module.exports = router;
